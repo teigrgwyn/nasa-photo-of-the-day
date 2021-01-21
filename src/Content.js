@@ -17,11 +17,11 @@ const TextWrapper = styled.p`
 `;
 
 function Content(props) {
-  const { url, text, author, date} = props;
+  const { url, hdurl, text, author, date, isHigh} = props;
 
   return (
     <>
-      <ImageWrapper src={url} alt='' ></ImageWrapper>
+      <ImageWrapper src={(isHigh ? url : hdurl)} alt='' ></ImageWrapper>
       <CopyrightWrapper>Copyright | {author} | {date}</CopyrightWrapper>
       <TextWrapper>{text}</TextWrapper>
     </>

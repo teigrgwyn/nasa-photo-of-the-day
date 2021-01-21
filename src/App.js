@@ -24,23 +24,24 @@ function App() {
       setPhotoToday(res.data)
     })
     .catch((err) => console.log(err))
-  }, [isHigh])
+  }, [])
 
   return (
     <div className="App">
       <WrapperDiv>
         <Header title={photoToday.title} />
-        <Content url={photoToday.url} text={photoToday.explanation} author={photoToday.copyright} date={photoToday.date} />
-        <Button onClick={SwapQuality}>Swap Image Resolution</Button>
+        <Button onClick={() => setIsHigh(!isHigh)}>Swap Image Resolution</Button>
+        <p></p>
+        <Content url={photoToday.url} hdurl={photoToday.hdurl} text={photoToday.explanation} author={photoToday.copyright} date={photoToday.date} isHigh={isHigh} />
       </WrapperDiv>
     </div>
   );
 
-  function SwapQuality() {
-    setPhotoToday(photoToday.map(data => {
-      return (photoToday.url === photoToday.hdurl ? {...photoToday, url: photoToday.hdurl} : photoToday);
-    }));
-  }
+  // function SwapQuality() {
+  //   setPhotoToday(photoToday.map(data => {
+  //     return (photoToday.url === photoToday.hdurl ? {...photoToday, url: photoToday.hdurl} : photoToday);
+  //   }));
+  // }
 }
 
 export default App;

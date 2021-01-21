@@ -7,7 +7,6 @@ const PageTitleWrapper = styled.h1`
 `;
 
 const TitleWrapper = styled.h3`
-  margin-bottom: 0px;
   color: crimson;
 `;
 
